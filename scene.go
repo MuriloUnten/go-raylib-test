@@ -29,7 +29,7 @@ func CreateScene1(player *Player) *Scene {
 
             if tile == "0" {
                 baseTile := Tile{
-                    hitbox: rl.NewRectangle(float32(rowIndex * 50), float32(colIndex * 50), 50, 50),
+                    hitbox: rl.NewRectangle(float32(colIndex * 50), float32(rowIndex * 50), 50, 50),
                     sprite: sprites["base-tile"],
                 }
                 tiles = append(tiles, baseTile)
@@ -61,7 +61,7 @@ func CreateScene2(player *Player) *Scene {
 
             if tile == "1" {
                 baseTile := Tile{
-                    hitbox: rl.NewRectangle(float32(rowIndex * 50), float32(colIndex * 50), 50, 50),
+                    hitbox: rl.NewRectangle(float32(colIndex * 50), float32(rowIndex * 50), 50, 50),
                     sprite: sprites["base-tile"],
                 }
                 tiles = append(tiles, baseTile)
@@ -78,11 +78,11 @@ func CreateScene2(player *Player) *Scene {
     return &scene
 }
 
-func (s *Scene) Update() {
-    s.player.Update()
+func (s *Scene) Update(elapsedTime float32) {
+    s.player.Update(elapsedTime)
 
     for _, enemy := range(s.enemies) {
-        enemy.Update()
+        enemy.Update(elapsedTime)
     }
 }
 

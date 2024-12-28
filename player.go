@@ -11,8 +11,8 @@ type Player struct {
     sprite rl.Texture2D
 }
 
-func (player *Player) Update() {
-    player.pos = rl.Vector2Add(player.pos, player.vel)
+func (player *Player) Update(elapsedTime float32) {
+    player.pos = rl.Vector2Add(player.pos, rl.Vector2Scale(player.vel, elapsedTime))
     player.hitbox.X = player.pos.X
     player.hitbox.Y = player.pos.Y
 }

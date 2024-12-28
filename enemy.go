@@ -15,6 +15,6 @@ func (enemy *Enemy) Draw() {
     rl.DrawTexture(enemy.sprite, int32(enemy.hitbox.X), int32(enemy.hitbox.Y), rl.White)
 }
 
-func (enemy *Enemy) Update() {
+func (enemy *Enemy) Update(elapsedTime float32) {
 
 }
